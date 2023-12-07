@@ -1,0 +1,12 @@
+{
+    "name": "simonem/php-deploy-demo",
+    "authors": [
+        {
+            "name": "Simone",
+            "email": "simone.mazzotti@gmail.com"
+        }
+    ],
+    "require": {
+        "bref/bref": "^2.1"
+    }
+}
