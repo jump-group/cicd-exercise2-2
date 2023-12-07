@@ -2,12 +2,11 @@ name: Deploy Staging
 
 on: 
   push:
-    branches: [ solution/github-action ]
+    branches: [ 'solution/github-action' ]
 
 jobs:
   deploy-staging:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/solution/github-action'
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
