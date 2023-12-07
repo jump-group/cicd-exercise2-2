@@ -37,7 +37,7 @@ jobs:
         id: build
         run: |
           yarn 
-          yarn build
+          yarn build-assets
 
       # install composer dependencies
       - name: Install Composer dependencies
