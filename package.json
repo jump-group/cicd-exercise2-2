@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "serverless": "^3.38.0",
     "serverless-lift": "^1.28.1"
   },
   "devDependencies": {}
