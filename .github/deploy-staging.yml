@@ -1,0 +1,70 @@
+name: Deploy Staging
+
+on: 
+  push:
+    branches: [ solution/github-action ]
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/solution/github-action'
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mbstring, zip, bcmath, pdo_mysql, opcache, pcntl, exif, gd, imagick, redis, memcached, apcu, mongodb, swoole, grpc, protobuf, xdebug
+          coverage: none
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install Composer
+        run: |
+          curl -sS https://getcomposer.org/installer -o composer-setup.php
+          php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+          rm composer-setup.php
+
+      - name: Run a multi-line script
+        continue-on-error: true
+        id: build
+        run: |
+          yarn 
+          yarn build
+
+      # install composer dependencies
+      - name: Install Composer dependencies
+        run: composer install --no-dev --optimize-autoloader
+      
+      - name: Deploy
+        uses: brefphp/deploy-action@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+          stack-name: cicd-2-exercise-2
+          template: serverless.yml
+
+      - name: "Notify Slack"
+        uses: ravsamhq/notify-slack-action@v2
+        if: always()
+        with:
+          status: ${{ job.status }}
+          notification_title: "{workflow} has {status_message}"
+          message_format: "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}> on branch `{branch}` by {actor}"
+          footer: "Linked Repo <{repo_url}|{repo}>"
+          notify_when: "failure"
+          mention_users: "U01JKQFC0Q4, U8RHEPE78"
+          mention_users_when: "failure,warnings"
+          mention_groups: "!channel"
+          mention_groups_when: "failure,warnings"
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
