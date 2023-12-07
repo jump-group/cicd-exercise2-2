@@ -1,0 +1,134 @@
+// _base.scss
+
+// Variabili per colori e dimensioni comuni
+$primary-color: #FF6F61;
+$secondary-color: #5E79BA;
+$font-color: #2A2A2A;
+$input-border-color: #ccc;
+$input-background-color: #f5f5f5;
+$button-background-color: $primary-color;
+$button-text-color: #fff;
+$button-hover-color: #5E79BA;
+
+// Stile base per l'intero documento HTML
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+h1 {
+    color: $font-color;
+    text-align: center;
+    font-size: 2em; /* Adjust font size */
+    margin-top: 20px; /* Adjust top margin */
+}
+
+// Stile per l'header
+h2 {
+  color: $primary-color;
+  margin-bottom: 15px;
+}
+
+.text-exercise{
+  color: $font-color;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* assets/style.scss */
+
+$primary-color: #258ECB;
+$secondary-color: #266488;
+
+.rounded-circle {
+    height: 400px;
+    width: 400px;
+    background: linear-gradient(123.19deg, $secondary-color 3.98%, $primary-color 94.36%);
+}
+
+.hello-text {
+    font-family: 'Dosis';
+    font-size: 45px;
+    color: #258ECB; /* Adjust the color as needed */
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 35%;
+}
+
+.header {
+  background-color: $font-color;
+  color: white;
+  padding: 15px 0;
+
+  nav {
+      ul.nav-pills {
+          li {
+              display: inline-block;
+              margin-right: 10px;
+
+              &:last-child {
+                  margin-right: 0;
+              }
+
+              a {
+                  color: white;
+                  text-decoration: none;
+              }
+
+              img {
+                  width: 120px; /* Adjust width as needed */
+                  height: auto; /* Maintain aspect ratio */
+              }
+          }
+      }
+
+      .text-muted {
+          color: white;
+          margin-top: 10px; // Adjust margin-top as needed
+
+          img {
+              vertical-align: middle;
+          }
+      }
+  }
+}
+
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    margin-top: 49px;
+    text-align: center; /* Center-align the content */
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between; /* Distribute content equally */
+        align-items: center; /* Vertically align items */
+
+        .copyright {
+            flex: 1; /* Take available space */
+        }
+
+        .website-link {
+            flex: 1; /* Take available space */
+            text-align: right; /* Right-align the link */
+            
+            a {
+                color: white;
+                text-decoration: none;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: lightgray;
+                }
+            }
+        }
+    }
+}
+

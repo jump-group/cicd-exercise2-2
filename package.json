@@ -1,0 +1,18 @@
+{
+  "name": "exercise-cicd-2-2",
+  "version": "1.0.0",
+  "description": "exercise 2.2",
+  "main": "server.js",
+  "scripts": {
+    "start": "php -S 127.0.0.1:8000 server.php ",
+    "build-assets:watch": "sass --watch resources/style.scss public/css/style.css",
+    "build-assets": "sass resources/style.scss public/css/style.css",
+    "deploy": "serverless deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serverless-lift": "^1.28.1"
+  },
+  "devDependencies": {}
+}

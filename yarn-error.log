@@ -1,0 +1,47 @@
+Arguments: 
+  /Users/giadaamaducci/.nvm/versions/node/v16.20.2/bin/node /usr/local/Cellar/yarn/1.22.19/libexec/bin/yarn.js start
+
+PATH: 
+  /usr/local/opt/php@8.0/sbin:/usr/local/opt/php@8.0/bin:/usr/local/opt/php@8.2/sbin:/usr/local/opt/php@8.2/bin:/usr/local/opt/php@8.0/sbin:/usr/local/opt/php@8.0/bin:/Users/giadaamaducci/.nvm/versions/node/v16.20.2/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/opt/php@8.0/sbin:/usr/local/opt/php@8.0/bin:/usr/local/opt/php@7.4/sbin:/usr/local/opt/php@7.4/bin:/usr/local/opt/php@8.1/sbin:/usr/local/opt/php@8.1/bin:/Users/giadaamaducci/.nvm/versions/node/v18.14.2/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/giadaamaducci/.fig/bin:/Users/giadaamaducci/.local/bin:/Users/giadaamaducci/.orbstack/bin:/Users/giadaamaducci/.composer/vendor/bin:/Users/giadaamaducci/.orbstack/bin:/Users/giadaamaducci/.composer/vendor/bin:/Users/giadaamaducci/.composer/vendor/bin:/Users/giadaamaducci/.composer/vendor/bin:/Users/giadaamaducci/.composer/vendor/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.20.2
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  SyntaxError: /Users/giadaamaducci/Formazione/cicd-exercise2-2/package.json: Unexpected token } in JSON at position 350
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.22.19/libexec/lib/cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.22.19/libexec/lib/cli.js:310:30)
+      at /usr/local/Cellar/yarn/1.22.19/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+      "name": "exercise-cicd-2-2",
+      "version": "1.0.0",
+      "description": "exercise 2.2",
+      "main": "server.js",
+      "scripts": {
+        "start": "php -S 127.0.0.1:8000 server.php ",
+        "build-assets:watch": "sass --watch resources/style.scss public/css/style.css",
+        "build-assets": "sass resources/style.scss public/css/style.css",
+      },
+      "author": "",
+      "license": "ISC",
+      "dependencies": {
+      },
+      "devDependencies": {
+      }
+    }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
